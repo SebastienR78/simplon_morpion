@@ -1,5 +1,5 @@
-import components.grille as grille
-import components.player as player
+from components.player import humanPlay, marq, check_win
+import  components.grille as grille
 import numpy as np
 
 
@@ -16,10 +16,13 @@ def game():
     win = False
     gameArray = np.array([[-1,-1,-1],[-1,-1,-1], [-1,-1,-1]])
     while turn <9 and not win:
-        place = player.humanPlay(gameArray)
-        gameArray = player.marq(place, gameArray,0)
+        currentPlayer = turn % 2
+        print(f"Tour du joueur {currentPlayer}")
+        place = humanPlay(gameArray, currentPlayer)
+        gameArray = marq(place, gameArray,currentPlayer)
         grille.afficher_grille_tot(gameArray)
         if turn<9:
-            player.humanPlay(gameArray)
+            humanPlay(gameArray, currentPlayer)
+            win = check_win(gameArray, currentPlayer)
 
 game()
