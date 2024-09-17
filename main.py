@@ -19,7 +19,6 @@ def game():
         place = player.humanPlay(gameArray)
         gameArray = player.marq(place, gameArray,0)
         grille.afficher_grille_tot(gameArray)
-        #grille.afficheX()
         if turn<9:
             player.humanPlay(gameArray)
 
