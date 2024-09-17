@@ -32,8 +32,8 @@ def afficher_grille_tot(gameArray):
 
 # affiche les croix
 def afficher_x(x,y):
-    plt.text(3-x-0.5,3-y-0.5,"X")
+    plt.text(x+0.5,3-y-0.5,"X")
 
 # affiche les cercles
 def afficher_o(x,y):
-    plt.text(3-x-0.5,3-y-0.5,"O")
+    plt.text(x+0.5,3-y-0.5,"O")
