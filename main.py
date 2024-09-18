@@ -21,8 +21,6 @@ def game():
         place = humanPlay(gameArray, currentPlayer)
         gameArray = marq(place, gameArray,currentPlayer)
         grille.afficher_grille_tot(gameArray)
-        if turn<9:
-            humanPlay(gameArray, currentPlayer)
-            win = check_win(gameArray, currentPlayer)
-
+        turn+=1
+        win = check_win(gameArray,currentPlayer)
 game()

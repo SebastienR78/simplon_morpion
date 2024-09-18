@@ -17,7 +17,7 @@ def humanPlay(gameArray, player):
         if playerChoice >=0 and playerChoice <9:
             x = playerChoice % 3
             y =  int(playerChoice / 3 )
-            if gameArray[y][x] == -1 :
+            if gameArray[x][y] == -1 :
                 emptySpace = True
             else:
                 print("La case est déjà occupée, veuillez en choisir une autre.")
