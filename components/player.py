@@ -32,7 +32,6 @@ def humanPlay(gameArray, player):
 def marq(place, array,player):
     array[place[0]][place[1]]=player
     return array
-    
 
 # Vérifier si un joueur a gagné
 def check_win(gameArray, player):
