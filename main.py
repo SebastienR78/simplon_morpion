@@ -79,7 +79,7 @@ def choiceGame():
     valueWaited = ["j","o"]
     while choice not in valueWaited:
         choice = input("Voulez vous jouer avec un autre joueur (j) ? un ordi (o) ? ou une ia (va te coucher)").lower()
-    if choiceGame=="j":
+    if choice=="j":
         humanGame()
     elif choice == "o":
         computeGame()
