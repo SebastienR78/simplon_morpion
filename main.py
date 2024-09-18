@@ -1,4 +1,4 @@
-from components.player import humanPlay, marq, check_win
+from components.player import humanPlay, marq, check_win, computerPlay
 import  components.grille as grille
 import numpy as np
 import matplotlib.pyplot as plt
@@ -47,16 +47,16 @@ def computeGame():
     turn = 0
     win = False
     gameArray = np.array([[-1,-1,-1],[-1,-1,-1], [-1,-1,-1]])
-    while playerAnswer != "o" or playerAnswer != "n":
+    while playerAnswer != "o" and playerAnswer != "n":
         playerAnswer= input("Voulez vous être le premier joueur ? ( O/N)").lower()
-    playerTurn = playerAnswer == "o"
+    playerTurn = playerAnswer != "o"
     while turn <9 and not win:
         currentPlayer = turn % 2
         print(f"Tour du joueur {currentPlayer+1}")
-        if currentPlayer == playerAnswer:
+        if currentPlayer == playerTurn:
             place = humanPlay(gameArray, currentPlayer)
         else :
-            place = computerPlay(gameArray,currentPlayer)
+            place = computerPlay(gameArray)
         gameArray = marq(place, gameArray,currentPlayer)
         grille.afficher_grille_tot(gameArray)
         win = check_win(gameArray,currentPlayer)
@@ -66,6 +66,7 @@ def computeGame():
     else:
         message = "Il y a eu égalité"
     grille.winner(message)
+
 
 #def iaGame():
 
@@ -81,7 +82,7 @@ def choiceGame():
     if choiceGame=="j":
         humanGame()
     elif choice == "o":
-        computeGame
+        computeGame()
 
 
 choiceGame()

@@ -45,3 +45,17 @@ def check_win(gameArray, player):
         return True
     
     return False 
+
+
+def computerPlay(gameArray):
+    tab_empty= []
+    i = 0
+    while i < 3:
+        j = 0
+        while j < 3:
+            if gameArray [i][j] == -1 :
+                tab_empty.append((3*j+i))
+            j+=1
+        i+=1
+    value =  np.random.choice(tab_empty)
+    return ( value%3,int(value/3))
