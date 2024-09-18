@@ -17,10 +17,15 @@ def game():
     gameArray = np.array([[-1,-1,-1],[-1,-1,-1], [-1,-1,-1]])
     while turn <9 and not win:
         currentPlayer = turn % 2
-        print(f"Tour du joueur {currentPlayer}")
+        print(f"Tour du joueur {currentPlayer+1}")
         place = humanPlay(gameArray, currentPlayer)
         gameArray = marq(place, gameArray,currentPlayer)
         grille.afficher_grille_tot(gameArray)
-        turn+=1
         win = check_win(gameArray,currentPlayer)
+        turn+=1
+    if win:
+        print("Le joueur ",currentPlayer+1," a gagné")
+    else:
+        print("Il y a eu égalité")
+
 game()
