@@ -13,16 +13,19 @@ import numpy as np
 def humanPlay(gameArray, player):
     emptySpace = False
     while not emptySpace:
-        playerChoice = int(input(f"{player}Veuillez choisir une case vide entre 1 et 9 : "))-1
-        if playerChoice >=0 and playerChoice <9:
-            x = playerChoice % 3
-            y =  int(playerChoice / 3 )
-            if gameArray[x][y] == -1 :
-                emptySpace = True
+        try :
+            playerChoice = int(input(f"{player}Veuillez choisir une case vide entre 1 et 9 : "))-1
+            if playerChoice >=0 and playerChoice <9:
+                x = playerChoice % 3
+                y =  int(playerChoice / 3 )
+                if gameArray[x][y] == -1 :
+                    emptySpace = True
+                else:
+                    print("La case est déjà occupée, veuillez en choisir une autre.")
             else:
-                print("La case est déjà occupée, veuillez en choisir une autre.")
-        else:
-            print("Choix invalide, veuillez entrer un nombre entre 1 et 9.")
+                print("Choix invalide, veuillez entrer un nombre entre 1 et 9.")
+        except ValueError: 
+                print('Veuillez entre un chiffre entre 1 et 9')
     return (x,y)    
 
 # Enregistre la valeur du joueur à sa place dans le tableau
