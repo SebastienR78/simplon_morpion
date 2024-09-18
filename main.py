@@ -62,10 +62,11 @@ def computeGame():
         win = check_win(gameArray,currentPlayer)
         turn+=1
     if win:
-        message = "Le joueur ",currentPlayer+1," a gagné"
+        plt.text(0.5, 0.5, f"Le joueur {int(currentPlayer + 1)} a gagné", fontsize=24, ha='center', va='center')
+        grille.winner(f"Le joueur {int(currentPlayer + 1)} a gagné")
     else:
-        message = "Il y a eu égalité"
-    grille.winner(message)
+        plt.text("Il y a eu égalité")
+        grille.winner("Il y a eu égalité")
 
 
 #def iaGame():

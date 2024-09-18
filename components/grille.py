@@ -9,6 +9,9 @@ def afficher_grille() :
     plt.plot([0, 3], [2, 2], 'k') 
     plt.plot([1, 1], [0, 3], 'k') 
     plt.plot([2,2], [0, 3], 'k') 
+    plt.gca().axes.xaxis.set_visible(False)
+    plt.gca().axes.yaxis.set_visible(False)
+    plt.box(False)
 
 # Appelle la fonction d'affiche grille
 # initilise un premier increment
@@ -33,15 +36,15 @@ def afficher_grille_tot(gameArray):
 
 # affiche les croix
 def afficher_x(x,y):
-    plt.text(x+0.5,3-y-0.5,"X",fontsize=24, ha='center', va='center')
+    plt.text(x+0.5,3-y-0.5,"X",fontsize=32, ha='center', va='center', color='blue')
 
 # affiche les cercles
 def afficher_o(x,y):
-    plt.text(x+0.5,3-y-0.5,"O",fontsize=24, ha='center', va='center')
+    plt.text(x+0.5,3-y-0.5,"O",fontsize=32, ha='center', va='center', color='red')
 
 def winner(message):
     plt.clf()
-    plt.suptitle(message,fontsize=24)
+    plt.suptitle(message,fontsize=42)
     plt.show()
     time.sleep(7)
     plt.close()

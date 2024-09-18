@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 # récupère un tableau 
 # intialise une valeur de vérification à False
@@ -37,7 +38,7 @@ def marq(place, array,player):
 def check_win(gameArray, player):
     # Vérifier les lignes et les colonnes
     for i in range(3):
-        if all([gameArray[i][j] == player for j in range(3)]) or all([gameArray[j][i] == player for j in range(3)]):
+        if all([gameArray[i][j] == player for j in range(3)]) or all([gameArray[j][i] == player for j in range(3)]) :
             return True
         
         # Vérifier les diagonales
@@ -45,8 +46,22 @@ def check_win(gameArray, player):
         return True
     if gameArray[0][2] == player and gameArray[1][1] == player and gameArray[2][0] == player:
         return True
-    
+
     return False 
+
+
+def draw_win_line(direction, index):
+    if direction == 'row':  # Ligne horizontale
+        plt.plot([0, 3], [3 - index - 0.5, 3 - index - 0.5], color='green', linewidth=5)
+    elif direction == 'col':  # Colonne verticale
+        plt.plot([index + 0.5, index + 0.5], [0, 3], color='green', linewidth=5)
+    elif direction == 'diag':  # Diagonale principale
+        plt.plot([0, 3], [3, 0], color='green', linewidth=5)
+    elif direction == 'anti-diag':  # Diagonale secondaire
+        plt.plot([0, 3], [0, 3], color='green', linewidth=5)
+    
+    plt.draw()
+    plt.pause(0.001)
 
 
 def computerPlay(gameArray):
