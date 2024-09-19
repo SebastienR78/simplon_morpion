@@ -1,0 +1,38 @@
+name: Run tests
+
+on: 
+  pull_request:
+    branches: ["main"]
+  
+  workflow_dispatch:
+
+jobs:
+  tests:
+    run-on: ubuntu-latest
+
+  strategy:
+    matrix: 
+      python-version: [3.12]
+
+  steps:
+    tests:
+      strategy:
+
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+        
+        - name: Set on Python
+          uses: actions/setup-pyth@v2
+          with:
+            python-version: %{{ matrix.python-version }}
+
+        - name: Install dependencies
+          run: |
+            python -o pip install --upgrade pip
+            pip install -r requirements.txt
+
+        - name: Run tests
+          run: |
+            pytest test/test_marq.py
+    
