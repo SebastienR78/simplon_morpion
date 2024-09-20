@@ -76,3 +76,8 @@ def computerPlay(gameArray):
         i+=1
     value =  np.random.choice(tab_empty)
     return ( value%3,int(value/3))
+
+
+# La fonction iaPlay appellera une fonction qui sera dans ia.py
+# Il récupèrera la valeur de la fonction minimax()
+# Puis la mettra en forme pour renvoyer la fonction

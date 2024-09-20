@@ -68,7 +68,7 @@ def computeGame():
         plt.text("Il y a eu égalité")
         grille.winner("Il y a eu égalité")
 
-
+#Meme fonction que computeGame mais avec la fonction de l'ia
 #def iaGame():
 
 
