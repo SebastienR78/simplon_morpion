@@ -78,6 +78,6 @@ def computerPlay(gameArray):
     return ( value%3,int(value/3))
 
 
-# La fonction iaPlay appellera une fonction qui sera dans ia.py
+# La fonction iaPlay appellera la fonction minimax qui sera dans ia.py
 # Il récupèrera la valeur de la fonction minimax()
-# Puis la mettra en forme pour renvoyer la fonction
+# Puis la mettra en forme pour renvoyer le résultat dans le bon format
