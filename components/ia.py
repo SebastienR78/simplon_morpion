@@ -9,4 +9,14 @@
 #   pour i de 0 à 3
 #       pour j de 0 à 3 
 #           modifie la valeur de ij au numéro de joueur dans le tableau
-#           value = maximum entre value et minimax ( 
+#           value = maximum entre value et minimax ( tableau_modifié, profondeur +1,!maximize,joueur)
+#           si tableau est vide et i == 1 et j == 1
+#           value +=50
+# Si maximize est faux
+#   La valeur actuelle = +1000
+#   pour i de 0 à 3
+#       pour j de 0 à 3 
+#           modifie la valeur de ij au numéro de joueur dans le tableau
+#           value = maximum entre value et minimax ( tableau_modifié, profondeur +1,!maximize,joueur)
+# Renvoie Value
+#
