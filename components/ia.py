@@ -36,9 +36,9 @@ def  minimax(game, maximize:bool, depth:int,gamer:int):
     j_choice = -1
     if check_win(game,gamer):
         if not maximize:
-            return 5100
+            return -500
         return 500
-    if(depth == 5 or free==1 or check_win(game,gamer)):
+    if(depth == 9 or free==1):
         if not maximize:
             return -100
         return 100
@@ -73,5 +73,4 @@ def  minimax(game, maximize:bool, depth:int,gamer:int):
     if depth != 0 :
         return value
     else :
-        print("i "+str(i_choice)+" j "+str(j_choice))
         return (i_choice,j_choice)

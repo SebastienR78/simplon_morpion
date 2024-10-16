@@ -81,12 +81,10 @@ def iaGame():
     playerTurn = playerAnswer != "o"
     while turn <9 and not win:
         currentPlayer = turn % 2
-        print(f"Tour du joueur {currentPlayer+1}")
         if currentPlayer == playerTurn:
             place = humanPlay(gameArray, currentPlayer)
         else :
             place = iaPlay(gameArray,currentPlayer)
-            print(place)
         gameArray = marq(place, gameArray,currentPlayer)
         grille.afficher_grille_tot(gameArray)
         win = check_win(gameArray,currentPlayer)
