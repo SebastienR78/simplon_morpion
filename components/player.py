@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from components.ia import  minimax
 
 # récupère un tableau 
 # intialise une valeur de vérification à False
@@ -29,25 +30,7 @@ def humanPlay(gameArray, player):
                 print('Veuillez entre un chiffre entre 1 et 9')
     return (x,y)    
 
-# Enregistre la valeur du joueur à sa place dans le tableau
-def marq(place, array,player):
-    array[place[0]][place[1]]=player
-    return array
 
-# Vérifier si un joueur a gagné
-def check_win(gameArray, player):
-    # Vérifier les lignes et les colonnes
-    for i in range(3):
-        if all([gameArray[i][j] == player for j in range(3)]) or all([gameArray[j][i] == player for j in range(3)]) :
-            return True
-        
-        # Vérifier les diagonales
-    if gameArray[0][0] == player and gameArray[1][1] == player and gameArray[2][2] == player:
-        return True
-    if gameArray[0][2] == player and gameArray[1][1] == player and gameArray[2][0] == player:
-        return True
-
-    return False 
 
 
 def draw_win_line(direction, index):
@@ -81,3 +64,7 @@ def computerPlay(gameArray):
 # La fonction iaPlay appellera la fonction minimax qui sera dans ia.py
 # Il récupèrera la valeur de la fonction minimax()
 # Puis la mettra en forme pour renvoyer le résultat dans le bon format
+def iaPlay(gameArray,gamer):
+    values = minimax(gameArray,True,0,gamer)
+    
+    return values
