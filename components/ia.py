@@ -38,10 +38,6 @@ def  minimax(game, maximize:bool, depth:int,gamer:int):
         if not maximize:
             return -500
         return 500
-    if(depth == 9 or free==1):
-        if not maximize:
-            return -100
-        return 100
     if maximize:
         value = -1000
         for i in range(0,3):
